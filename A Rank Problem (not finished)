@@ -1,0 +1,51 @@
+import java.util.Scanner;
+
+public class rankproblem {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        int numOfTeams = in.nextInt();
+        int numOfGames = in.nextInt();
+
+        String[] team = new String[numOfTeams];
+        for (int i = 0; i < numOfTeams; i++) {
+            team[i] = "T" + (i + 1); //initial ranking
+
+        }
+
+        for (int i = 0; i < numOfGames; i++) {
+            String win = in.next();
+            String lose = in.next();
+            in.nextLine();
+
+
+            //now you find index of winner and loser
+            int winIndex = -1;
+            int loseIndex = -1;
+
+            for (int j = 0; j < numOfTeams; j++) {
+                if (team[j].equals(win)){
+                    winIndex = j;
+                } else if(team[j].equals(lose)){
+                    loseIndex = j;
+                }
+            }
+            if (winIndex > loseIndex){
+                String temp = team[loseIndex];
+                team[loseIndex] = team[winIndex];
+                team[winIndex] = temp;
+            }
+
+            for (int j = loseIndex + 1; j < winIndex; j++){
+                String temp2 = team[j];
+                team[j] = team[j+1];
+                team[j + 1] = temp2;
+            }
+        }
+        for (int i = 0; i < numOfTeams; i++) {
+            System.out.println(team[i] + " ");
+        }
+
+    }
+
+}
