@@ -1,0 +1,15 @@
+import java.util.Scanner;
+
+public class aaah{
+    public static void main(String[] args){
+        Scanner in = new Scanner(System.in);
+        String Jon = in.nextLine();
+        String doctor = in.nextLine();
+
+        if (Jon.length() < doctor.length()) {
+            System.out.print("no");
+        } else {
+            System.out.println("go");
+        }
+    }
+}
